@@ -6,7 +6,6 @@
 package com.br.jcarvalho.main;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,7 +25,6 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setFullScreen(true);
         stage.setOnCloseRequest((WindowEvent event) -> {
             //TODO implementar alguma coisa para ser executando antes de fechar a tela principal caso neja necessario..
         });

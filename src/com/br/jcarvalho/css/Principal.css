@@ -4,4 +4,20 @@
     -fx-background-color: #70a8c9
 }
 
+.btn_barra_prin{
+    -fx-background-position: center
+}
+
+.btn_barra_prin:hover{
+    -fx-background-color: #748370
+}
+
+.btn_cliente_fisico.btn_barra_prin{
+     -fx-background-image: url(../img48/cad_cliente_fisico48.png);
+}
+
+.btn_cliente_juridico{
+     -fx-background-image: url(../img48/cad_cliente_fisico48.png);
+}
+
 
