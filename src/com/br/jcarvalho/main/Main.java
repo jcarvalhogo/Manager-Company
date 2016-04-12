@@ -27,6 +27,7 @@ public class Main extends Application {
         stage.show();
         
         //teste para ver se funciona mais um...
+        // novo comentário....Fred
     }
 
     /**
