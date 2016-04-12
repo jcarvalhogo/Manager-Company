@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="833.0" prefWidth="1198.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.jcarvalho.main.PrincipalController">
+<AnchorPane prefHeight="833.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.PrincipalController">
     <children>
       <HBox layoutX="14.0" layoutY="130.0" prefWidth="1198.0" styleClass="FundoBarra" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
          <children>

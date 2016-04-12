@@ -5,6 +5,7 @@
  */
 package com.br.jcarvalho.main;
 
+import com.br.jcarvalho.telas.PrincipalController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,10 +18,10 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Principal.fxml"));
+        Parent root = FXMLLoader.load(PrincipalController.class.getResource("Principal.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setMaximized(true);
         stage.setScene(scene);
         stage.setOnCloseRequest((WindowEvent event) -> {
             //TODO implementar alguma coisa para ser executando antes de fechar a tela principal caso neja necessario..
