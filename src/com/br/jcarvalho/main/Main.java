@@ -25,10 +25,6 @@ public class Main extends Application {
         
         stage.setScene(scene);
         stage.show();
-        
-        //teste para ver se funciona mais um...
-        // novo comentário....Fred
-        //teste josemar..
     }
 
     /**
