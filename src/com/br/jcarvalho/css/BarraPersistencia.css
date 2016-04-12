@@ -1,0 +1,30 @@
+
+
+.btn_padrao{
+    -fx-pref-height: 70;
+    -fx-pref-width: 70;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.btn_padrao:hover{
+    -fx-background-color: white;
+}
+
+#btn_salvar{
+    -fx-background-image: url(../img64/file-complete64.png);
+}
+
+#btn_novo{
+    -fx-background-image: url(../img64/new-file64.png);
+}
+#btn_cancelar{
+    -fx-background-image: url(../img64/cancel-file64.png);
+}
+#btn_editar{
+    -fx-background-image: url(../img64/edit-file64.png);
+}
+#btn_consultar{
+    -fx-background-image: url(../img64/search-file64.png);
+}
+
