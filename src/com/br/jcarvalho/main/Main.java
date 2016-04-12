@@ -27,11 +27,8 @@ public class Main extends Application {
         
         stage.setScene(scene);
         stage.setFullScreen(true);
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                //TODO implementar alguma coisa para ser executando antes de fechar a tela principal
-            }
+        stage.setOnCloseRequest((WindowEvent event) -> {
+            //TODO implementar alguma coisa para ser executando antes de fechar a tela principal caso neja necessario..
         });
         stage.show();
     }
