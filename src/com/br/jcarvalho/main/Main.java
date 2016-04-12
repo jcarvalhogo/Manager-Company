@@ -12,10 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-/**
- *
- * @author Josemar
- */
+
 public class Main extends Application {
     
     @Override
