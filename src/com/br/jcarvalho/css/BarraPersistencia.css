@@ -18,12 +18,15 @@
 #btn_novo{
     -fx-background-image: url(../img64/new-file64.png);
 }
+
 #btn_cancelar{
     -fx-background-image: url(../img64/cancel-file64.png);
 }
+
 #btn_editar{
     -fx-background-image: url(../img64/edit-file64.png);
 }
+
 #btn_consultar{
     -fx-background-image: url(../img64/search-file64.png);
 }
