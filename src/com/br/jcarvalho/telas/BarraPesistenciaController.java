@@ -5,6 +5,7 @@
  */
 package com.br.jcarvalho.telas;
 
+import com.br.jcarvalho.util.IntegracaoPersistencia;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -16,10 +17,15 @@ import javafx.fxml.Initializable;
  */
 public class BarraPesistenciaController implements Initializable {
 
+    private IntegracaoPersistencia integracao;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
+    public void setIntegracaoPersistencia(IntegracaoPersistencia integracao){
+        this.integracao = integracao;
+    }
     
 }

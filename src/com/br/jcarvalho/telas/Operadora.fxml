@@ -11,10 +11,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="356.0" prefWidth="600.0" stylesheets="@../css/BarraPersistencia.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.jcarvalho.telas.OperadoraController">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="180.0" prefHeight="72.0" prefWidth="600.0" styleClass="fundo_barra_topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <HBox fx:id="barra_ferramenta" alignment="CENTER" layoutX="180.0" prefHeight="72.0" prefWidth="600.0" styleClass="fundo_barra_topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <HBox alignment="CENTER" layoutY="328.0" prefHeight="40.0" prefWidth="600.0" styleClass="fundo_barra_button" stylesheets="@../css/Principal.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label text="estatus tabela">
+            <Label fx:id="lb_estatus" text="estatus tabela">
                <font>
                   <Font size="18.0" />
                </font>
@@ -24,9 +24,9 @@
       <AnchorPane layoutX="156.0" layoutY="80.0" prefHeight="181.0" prefWidth="600.0" styleClass="ConteinerPersistencia" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
             <Label layoutX="14.0" layoutY="42.0" text="Operadora" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-            <TextField layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="435.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0" />
+            <TextField fx:id="tf_operadora" layoutX="14.0" layoutY="69.0" prefHeight="26.0" prefWidth="435.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0" />
             <Label layoutX="10.0" layoutY="79.0" text="Obs.:" />
-            <TextArea layoutX="10.0" layoutY="102.0" prefHeight="200.0" prefWidth="563.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="105.0" />
+            <TextArea fx:id="ta_obs" layoutX="10.0" layoutY="102.0" prefHeight="200.0" prefWidth="563.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="105.0" />
          </children>
       </AnchorPane>
    </children>

@@ -30,15 +30,16 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     @FXML
     private HBox barra_ferramenta;
     @FXML
-    private TextField tf_descricao;
+    private TextField tf_operadora;
     @FXML
     private TextArea ta_obs;
     @FXML
-    private Label estatus;
+    private Label lb_estatus;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        estatus.setText(MsgBarra.NORMAL);
+        lb_estatus.setText(MsgBarra.NORMAL);
+        barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this));
     }
 
     @Override

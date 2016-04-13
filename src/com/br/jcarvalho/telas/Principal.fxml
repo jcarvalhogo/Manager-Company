@@ -37,9 +37,19 @@
           <Menu mnemonicParsing="false" text="Arquivos" />
           <Menu mnemonicParsing="false" text="Cadastros">
                <items>
-              <MenuItem mnemonicParsing="false" text="Clientes Fisicos" />
-                  <MenuItem mnemonicParsing="false" text="Clientes Juridico" />
+                  <Menu mnemonicParsing="false" text="Clientes">
+                    <items>
+                    <MenuItem mnemonicParsing="false" text="Fisico" />
+                        <MenuItem mnemonicParsing="false" text="Juridico" />
+                    </items>
+                  </Menu>
                   <MenuItem mnemonicParsing="false" text="Produtos" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <Menu mnemonicParsing="false" text="Uteis">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showTelaOperadora" text="Operadoras" />
+                    </items>
+                  </Menu>
                </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Relatórios">
