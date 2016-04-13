@@ -5,10 +5,21 @@
  */
 package com.br.jcarvalho.telas;
 
+import com.br.jcarvalho.util.DBAction;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
+import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * FXML Controller class
@@ -18,14 +29,98 @@ import javafx.fxml.Initializable;
 public class BarraPesistenciaController implements Initializable {
 
     private IntegracaoPersistencia integracao;
-    
+    private int local_action;
+    private EntityManagerFactory emf;
+    private EntityManager em;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }  
-    
-    public void setIntegracaoPersistencia(IntegracaoPersistencia integracao){
+        local_action = DBAction.LIVRE;
+    }
+
+    private void menssagem(String titulo, String msg, AlertType type) {
+        if (integracao.isShowMessage()) {
+            Alert alert = new Alert(type);
+            alert.setTitle(titulo);
+            alert.setContentText(msg);
+            alert.show();
+        }
+    }
+
+    private void getEntityManager() {
+        emf = Persistence.createEntityManagerFactory("Manager-Company");
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
+    }
+
+    public void setIntegracaoPersistencia(IntegracaoPersistencia integracao) {
         this.integracao = integracao;
     }
-    
+
+    @FXML
+    private void salvar(ActionEvent event) {
+        try {
+            switch (local_action) {
+                case DBAction.NOVO:
+                    getEntityManager();
+                    if (em != null) {
+                        Object obj = integracao.getObject(DBAction.SALVAR);
+                        if (obj != null) {
+                            em.persist(obj);
+                            em.getTransaction().commit();
+                        }
+                        em.close();
+                        emf.close();
+                        menssagem(MsgBarra.TITULO, MsgBarra.SALVO_COM_SUCESO, AlertType.CONFIRMATION);
+                        integracao.limpartudo();
+                    }
+                    break;
+
+                case DBAction.EDITAR:
+                    getEntityManager();
+                    if (em != null) {
+                        Object obj = integracao.getObject(DBAction.SALVAR);
+                        if (obj != null) {
+                            em.merge(obj);
+                            em.getTransaction().commit();
+                        }
+                        em.close();
+                        emf.close();
+                        menssagem(MsgBarra.TITULO, MsgBarra.EDTIDADO_COM_SUCESO, AlertType.CONFIRMATION);
+                        integracao.limpartudo();
+                    }
+                    break;
+
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(BarraPesistenciaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void novo(ActionEvent event) {
+        if (local_action != DBAction.EDITAR) {
+            local_action = DBAction.NOVO;
+            integracao.setFocus();
+            integracao.setObject(DBAction.NOVO);
+        } else {
+
+        }
+    }
+
+    @FXML
+    private void editar(ActionEvent event) {
+        if (local_action != DBAction.NOVO) {
+            local_action = DBAction.EDITAR;
+        } else if (integracao.isShowMessage()) {
+
+        }
+    }
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        local_action = DBAction.CANCELAR;
+        integracao.limpartudo();
+    }
+
 }

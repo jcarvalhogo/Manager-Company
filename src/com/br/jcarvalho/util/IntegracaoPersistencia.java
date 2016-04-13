@@ -18,4 +18,7 @@ public interface IntegracaoPersistencia {
     public boolean isShowMessage();
 
     public boolean reflesh();
+
+    public boolean limpartudo();
+    public void setFocus();
 }

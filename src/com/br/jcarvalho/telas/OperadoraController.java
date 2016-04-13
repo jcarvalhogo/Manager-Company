@@ -24,9 +24,9 @@ import javafx.scene.layout.HBox;
  * @author Josemar
  */
 public class OperadoraController implements Initializable, IntegracaoPersistencia {
-
+    
     private Operadora operadora;
-
+    
     @FXML
     private HBox barra_ferramenta;
     @FXML
@@ -35,48 +35,63 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     private TextArea ta_obs;
     @FXML
     private Label lb_estatus;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lb_estatus.setText(MsgBarra.NORMAL);
         barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this));
     }
-
+    
     @Override
     public Object getObject(int action) {
         switch (action) {
             case DBAction.SALVAR:
-                //TODO preparar objeto para salvar
+                operadora = new Operadora();
+                operadora.setDesciracaoOpe(tf_operadora.getText());
+                operadora.setObsOpe(ta_obs.getText());
                 break;
             case DBAction.CANCELAR:
-                //TODO cancelar actions
+                operadora = null;
+                lb_estatus.setText(MsgBarra.CANCEL);
                 break;
             case DBAction.EDITAR:
-                //TODO preparar objeto para editar
+                lb_estatus.setText(MsgBarra.EDITE);
                 break;
             case DBAction.NOVO:
-                //TODO preparar objeto para novo..
+                lb_estatus.setText(MsgBarra.NOVO);
                 break;
             default:
                 return null;
         }
-
+        
         return operadora;
     }
-
+    
     @Override
     public boolean setObject(Object object) {
         return false;
     }
-
+    
     @Override
     public boolean isShowMessage() {
         return true;
     }
-
+    
     @Override
     public boolean reflesh() {
         return false;
     }
-
+    
+    @Override
+    public boolean limpartudo() {
+        tf_operadora.setText("");
+        ta_obs.setText("");
+        return true;
+    }
+    
+    @Override
+    public void setFocus() {
+        tf_operadora.requestFocus();
+    }
+    
 }

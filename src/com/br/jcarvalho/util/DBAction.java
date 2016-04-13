@@ -15,4 +15,5 @@ public class DBAction {
     public static final int EDITAR = 2;
     public static final int CANCELAR = 3;
     public static final int SALVAR = 4;
+    public static final int LIVRE = 5;
 }

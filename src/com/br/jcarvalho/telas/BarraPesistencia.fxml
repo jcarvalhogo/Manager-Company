@@ -7,25 +7,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <HBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.BarraPesistenciaController">
    <children>
-      <Button id="btn_novo" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
+      <Button id="btn_novo" mnemonicParsing="false" onAction="#novo" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>
       </Button>
-      <Button id="btn_salvar" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
+      <Button id="btn_salvar" mnemonicParsing="false" onAction="#salvar" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>
       </Button>
-      <Button id="btn_editar" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
+      <Button id="btn_editar" mnemonicParsing="false" onAction="#editar" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>
       </Button>
-      <Button id="btn_cancelar" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
+      <Button id="btn_cancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>
