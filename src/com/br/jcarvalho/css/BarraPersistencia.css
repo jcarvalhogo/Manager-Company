@@ -16,8 +16,8 @@
 }
 
 .btn_padrao{
-    -fx-pref-height: 70;
-    -fx-pref-width: 70;
+    -fx-pref-height: 64;
+    -fx-pref-width: 64;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
 }
