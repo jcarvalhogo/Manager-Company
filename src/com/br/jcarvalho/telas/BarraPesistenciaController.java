@@ -101,8 +101,7 @@ public class BarraPesistenciaController implements Initializable {
     private void novo(ActionEvent event) {
         if (local_action != DBAction.EDITAR) {
             local_action = DBAction.NOVO;
-            integracao.setFocus();
-            integracao.setObject(DBAction.NOVO);
+            integracao.getObject(DBAction.NOVO);
         } else {
 
         }
@@ -112,6 +111,7 @@ public class BarraPesistenciaController implements Initializable {
     private void editar(ActionEvent event) {
         if (local_action != DBAction.NOVO) {
             local_action = DBAction.EDITAR;
+            integracao.getObject(DBAction.EDITAR);
         } else if (integracao.isShowMessage()) {
 
         }
@@ -120,6 +120,7 @@ public class BarraPesistenciaController implements Initializable {
     @FXML
     private void cancelar(ActionEvent event) {
         local_action = DBAction.CANCELAR;
+        integracao.getObject(DBAction.CANCELAR);
         integracao.limpartudo();
     }
 

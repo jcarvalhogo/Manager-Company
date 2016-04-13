@@ -24,9 +24,9 @@ import javafx.scene.layout.HBox;
  * @author Josemar
  */
 public class OperadoraController implements Initializable, IntegracaoPersistencia {
-    
+
     private Operadora operadora;
-    
+
     @FXML
     private HBox barra_ferramenta;
     @FXML
@@ -35,13 +35,13 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     private TextArea ta_obs;
     @FXML
     private Label lb_estatus;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lb_estatus.setText(MsgBarra.NORMAL);
         barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this));
     }
-    
+
     @Override
     public Object getObject(int action) {
         switch (action) {
@@ -58,40 +58,42 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
                 lb_estatus.setText(MsgBarra.EDITE);
                 break;
             case DBAction.NOVO:
+                limpartudo();
                 lb_estatus.setText(MsgBarra.NOVO);
+                setFocus();
                 break;
             default:
                 return null;
         }
-        
+
         return operadora;
     }
-    
+
     @Override
     public boolean setObject(Object object) {
         return false;
     }
-    
+
     @Override
     public boolean isShowMessage() {
         return true;
     }
-    
+
     @Override
     public boolean reflesh() {
         return false;
     }
-    
+
     @Override
     public boolean limpartudo() {
         tf_operadora.setText("");
         ta_obs.setText("");
         return true;
     }
-    
+
     @Override
     public void setFocus() {
         tf_operadora.requestFocus();
     }
-    
+
 }
