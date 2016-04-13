@@ -9,13 +9,6 @@ package com.br.jcarvalho.util;
  *
  * @author Josemar
  */
-public interface IntegracaoPersistencia {
-
-    public Object getObject(int action);
-
-    public boolean setObject(Object object);
-
-    public boolean isShowMessage();
-
-    public boolean reflesh();
+public class MsgBarra {
+    public static final String NORMAL = "Sem Modificação";
 }

@@ -9,13 +9,10 @@ package com.br.jcarvalho.util;
  *
  * @author Josemar
  */
-public interface IntegracaoPersistencia {
+public class DBAction {
 
-    public Object getObject(int action);
-
-    public boolean setObject(Object object);
-
-    public boolean isShowMessage();
-
-    public boolean reflesh();
+    public static final int NOVO = 1;
+    public static final int EDITAR = 2;
+    public static final int CANCELAR = 3;
+    public static final int SALVAR = 4;
 }
