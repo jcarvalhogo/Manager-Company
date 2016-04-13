@@ -245,10 +245,7 @@ public class Clientefisico implements Serializable {
             return false;
         }
         Clientefisico other = (Clientefisico) object;
-        if ((this.idCliFis == null && other.idCliFis != null) || (this.idCliFis != null && !this.idCliFis.equals(other.idCliFis))) {
-            return false;
-        }
-        return true;
+        return !((this.idCliFis == null && other.idCliFis != null) || (this.idCliFis != null && !this.idCliFis.equals(other.idCliFis)));
     }
 
     @Override
