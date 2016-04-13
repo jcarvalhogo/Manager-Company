@@ -25,9 +25,9 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setMaximized(true);
         stage.setScene(scene);
-        stage.setOnCloseRequest((WindowEvent event) -> {
+        /*stage.setOnCloseRequest((WindowEvent event) -> {
             //TODO implementar alguma coisa para ser executando antes de fechar a tela principal caso neja necessario..
-        });
+        });*/
         stage.show();
     }
 
