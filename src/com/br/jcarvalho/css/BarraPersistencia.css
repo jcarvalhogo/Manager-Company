@@ -1,4 +1,19 @@
 
+.fundo_barra_topo{
+    -fx-background-color: #84a1c8;
+    -fx-pref-height: 80;
+}
+
+.fundo_barra_button{
+    -fx-background-color: #84a1c8;
+    -fx-pref-height: 40;
+    -fx-text-alignment: center;
+}
+
+.ConteinerPersistencia{
+    -fx-font-size: 14px;
+    -fx-text-fill: blue; 
+}
 
 .btn_padrao{
     -fx-pref-height: 70;
