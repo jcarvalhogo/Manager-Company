@@ -13,14 +13,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-
 public class Main extends Application {
-    
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(PrincipalController.class.getResource("Principal.fxml"));
-        
+
         Scene scene = new Scene(root);
         stage.setMaximized(true);
         stage.setScene(scene);
@@ -28,6 +26,7 @@ public class Main extends Application {
             //TODO implementar alguma coisa para ser executando antes de fechar a tela principal caso neja necessario..
         });
         stage.show();
+
     }
 
     /**
@@ -36,5 +35,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
