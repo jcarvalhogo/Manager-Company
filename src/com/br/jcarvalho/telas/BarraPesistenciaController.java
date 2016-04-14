@@ -29,6 +29,8 @@ import javax.persistence.Persistence;
  */
 public class BarraPesistenciaController implements Initializable {
 
+    private static final String PERSISTENCE_UNIT = "Manager-Company";
+
     private IntegracaoPersistencia integracao;
     private int local_action;
     private EntityManagerFactory emf;
@@ -51,7 +53,7 @@ public class BarraPesistenciaController implements Initializable {
     }
 
     private void getEntityManager() {
-        emf = Persistence.createEntityManagerFactory("Manager-Company");
+        emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
         em = emf.createEntityManager();
         em.getTransaction().begin();
     }

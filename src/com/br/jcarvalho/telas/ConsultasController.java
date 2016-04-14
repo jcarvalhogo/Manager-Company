@@ -104,9 +104,21 @@ public class ConsultasController implements Initializable {
         conteiner_table.getChildren().add(table);
     }
 
-    private <T> TypedQuery<T> getTypedQuery(Class<T> type) {
-        TypedQuery<T> query = em.createNamedQuery("Operadora.findAll", type);
+    private <T> TypedQuery<T> getTypedQuery(Class<T> type, ItemComboBox item) {
+        TypedQuery<T> query = em.createNamedQuery(item.getNameQuery(), type);
+        int p_size = query.getParameters().size();
+        if (p_size > 0) {
+            if (item.getTipo().getSimpleName().equals("Integer")) {
+                query.setParameter(item.getParametro(), Integer.parseInt(textField.getText()));
+            } else {
+                query.setParameter(item.getParametro(), textField.getText());
+            }
+        }
         return query;
+    }
+
+    private boolean temParametros() {
+        return false;
     }
 
     @FXML
@@ -115,18 +127,27 @@ public class ConsultasController implements Initializable {
             disableControler(true, -1);
             progressIndicator.progressProperty().setValue(-1);
             progressIndicator.setVisible(true);
-            new Consultar().start();
+            int index = comboBox.getSelectionModel().getSelectedIndex();
+            if (index > -1) {
+                new Consultar(index).start();
+            }
         }
     }
 
     private class Consultar extends Thread {
+
+        private final int index;
+
+        public Consultar(int index) {
+            this.index = index;
+        }
 
         @Override
         public void run() {
             getEntityManager();
             if (em != null) {
                 observableList.clear();
-                TypedQuery query = getTypedQuery(myClass);
+                TypedQuery query = getTypedQuery(myClass, itens.get(index));
                 List resultList = query.getResultList();
                 resultList.stream().forEach((object) -> {
                     observableList.add(object);

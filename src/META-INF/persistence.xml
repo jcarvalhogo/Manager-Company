@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="Manager-Company" transaction-type="RESOURCE_LOCAL">
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.br.jcarvalho.model.Tipoconweb</class>
-    <class>com.br.jcarvalho.model.Operadora</class>
-    <class>com.br.jcarvalho.model.Clientefisico</class>
-    <class>com.br.jcarvalho.model.Contatowebcli</class>
-    <class>com.br.jcarvalho.model.Telcliente</class>
-    <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.50:3306/ManegerCompany?zeroDateTimeBehavior=convertToNull"/>
-      <property name="javax.persistence.jdbc.user" value="estudo-jpa"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="estudo-jpa"/>
-    </properties>
-  </persistence-unit>
+    <persistence-unit name="Manager-Company" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>com.br.jcarvalho.model.Tipoconweb</class>
+        <class>com.br.jcarvalho.model.Operadora</class>
+        <class>com.br.jcarvalho.model.Clientefisico</class>
+        <class>com.br.jcarvalho.model.Contatowebcli</class>
+        <class>com.br.jcarvalho.model.Telcliente</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.50:3306/ManegerCompany?zeroDateTimeBehavior=convertToNull"/>
+            <property name="javax.persistence.jdbc.user" value="estudo-jpa"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="estudo-jpa"/>
+        </properties>
+    </persistence-unit>
+  
+    <persistence-unit name="Manager-Company-02" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>com.br.jcarvalho.model.Tipoconweb</class>
+        <class>com.br.jcarvalho.model.Operadora</class>
+        <class>com.br.jcarvalho.model.Clientefisico</class>
+        <class>com.br.jcarvalho.model.Contatowebcli</class>
+        <class>com.br.jcarvalho.model.Telcliente</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.50:3306/ManegerCompany?zeroDateTimeBehavior=convertToNull"/>
+            <property name="javax.persistence.jdbc.user" value="estudo-jpa"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="estudo-jpa"/>
+        </properties>
+    </persistence-unit>
 </persistence>

@@ -54,9 +54,9 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
 
     private Stage getStageConsulta() {
         List<ItemComboBox> itens = new ArrayList<>();
-        itens.add(new ItemComboBox("Todos", "Operadora.findAll"));
-        itens.add(new ItemComboBox("Código", "Operadora.findByIdOpe"));
-        itens.add(new ItemComboBox("Operadora", "Operadora.findByDesciracaoOpe"));
+        itens.add(new ItemComboBox("Todos", "Operadora.findAll", "", null));
+        itens.add(new ItemComboBox("Código", "Operadora.findByIdOpe", "idOpe", Integer.class));
+        itens.add(new ItemComboBox("Operadora", "Operadora.findByDesciracaoOpe", "desciracaoOpe", String.class));
 
         ObservableList<Operadora> observableList = FXCollections.observableArrayList();
         TableView<Operadora> table = new TableView<>();
