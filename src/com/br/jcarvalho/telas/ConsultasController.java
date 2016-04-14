@@ -5,8 +5,8 @@
  */
 package com.br.jcarvalho.telas;
 
-import com.br.jcarvalho.model.Operadora;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,7 +14,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import static javafx.scene.input.KeyCode.T;
 import javafx.scene.layout.HBox;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 /**
  * FXML Controller class
@@ -24,6 +29,10 @@ import javafx.scene.layout.HBox;
 public class ConsultasController implements Initializable {
 
     private ObservableList observableList;
+    private EntityManagerFactory emf;
+    private EntityManager em;
+    
+    //private Class<T> entityClass;
 
     @FXML
     private HBox conteiner_table;
@@ -31,6 +40,12 @@ public class ConsultasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    private void getEntityManager() {
+        emf = Persistence.createEntityManagerFactory("Manager-Company");
+        em = emf.createEntityManager();
+        em.getTransaction().begin();
     }
 
     public void initTable(TableView<?> table, ObservableList<? extends Object> observableList, TableColumn<?, ?>... colunas) {
@@ -44,12 +59,11 @@ public class ConsultasController implements Initializable {
 
     @FXML
     private void consultar(ActionEvent event) {
-        Operadora operadora = new Operadora();
-
-        operadora.setIdOpe(1);
-        operadora.setDesciracaoOpe("TIM");
-
-        observableList.add(operadora);
+        getEntityManager();
+        if (em != null) {
+            //TypedQuery<?> query = em.cre
+            //List resultList = createQuery.getResultList();
+        }
     }
 
 }
