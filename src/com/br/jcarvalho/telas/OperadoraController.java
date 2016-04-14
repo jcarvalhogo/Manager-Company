@@ -8,8 +8,11 @@ package com.br.jcarvalho.telas;
 import com.br.jcarvalho.model.Operadora;
 import com.br.jcarvalho.util.DBAction;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
+import com.br.jcarvalho.util.ItemComboBox;
 import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,6 +53,11 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     }
 
     private Stage getStageConsulta() {
+        List<ItemComboBox> itens = new ArrayList<>();
+        itens.add(new ItemComboBox("Todos", "Operadora.findAll"));
+        itens.add(new ItemComboBox("Código", "Operadora.findByIdOpe"));
+        itens.add(new ItemComboBox("Operadora", "Operadora.findByDesciracaoOpe"));
+
         ObservableList<Operadora> observableList = FXCollections.observableArrayList();
         TableView<Operadora> table = new TableView<>();
         table.setItems(observableList);
@@ -64,6 +72,7 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
 
         return LoaderFxml.getStageConsulta(
                 Operadora.class,
+                itens,
                 "Cosulta de Operadoras",
                 600, 500, table,
                 observableList,

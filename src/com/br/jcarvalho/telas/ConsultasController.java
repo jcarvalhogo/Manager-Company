@@ -84,11 +84,14 @@ public class ConsultasController implements Initializable {
     }
 
     public void initItensComboBox(List<ItemComboBox> itens) {
-        this.itens = itens;
-        comboBox.getItems().clear();
-        itens.stream().forEach((iten) -> {
-            comboBox.getItems().add(iten.getItem());
-        });
+        if (itens != null) {
+            this.itens = itens;
+            comboBox.getItems().clear();
+            itens.stream().forEach((iten) -> {
+                comboBox.getItems().add(iten.getItem());
+            });
+            comboBox.setValue(itens.get(0).getItem());
+        }
     }
 
     public void initTable(Class myClass, TableView<?> table, ObservableList<? extends Object> observableList, TableColumn<?, ?>... colunas) {
