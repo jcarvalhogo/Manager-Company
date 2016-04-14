@@ -78,7 +78,8 @@ public class ConsultasController implements Initializable {
     }
 
     private void getEntityManager() {
-        emf = Persistence.createEntityManagerFactory("Manager-Company");
+        //emf = Persistence.createEntityManagerFactory("Manager-Company");
+        emf = Persistence.createEntityManagerFactory("Manager-Company-02");
         em = emf.createEntityManager();
         em.getTransaction().begin();
     }
