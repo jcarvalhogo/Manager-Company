@@ -29,7 +29,7 @@ import javax.persistence.Persistence;
  */
 public class BarraPesistenciaController implements Initializable {
 
-    private static final String PERSISTENCE_UNIT = "Manager-Company";
+    private static final String PERSISTENCE_UNIT = "Manager-Company-02";
 
     private IntegracaoPersistencia integracao;
     private int local_action;

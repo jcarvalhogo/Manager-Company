@@ -23,7 +23,7 @@
         <class>com.br.jcarvalho.model.Contatowebcli</class>
         <class>com.br.jcarvalho.model.Telcliente</class>
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.50:3306/ManegerCompany?zeroDateTimeBehavior=convertToNull"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ManegerCompany?zeroDateTimeBehavior=convertToNull"/>
             <property name="javax.persistence.jdbc.user" value="estudo-jpa"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.password" value="estudo-jpa"/>
