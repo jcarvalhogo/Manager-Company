@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -32,6 +33,8 @@ public class BarraPesistenciaController implements Initializable {
     private int local_action;
     private EntityManagerFactory emf;
     private EntityManager em;
+
+    private Stage stage_consultas;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,6 +58,10 @@ public class BarraPesistenciaController implements Initializable {
 
     public void setIntegracaoPersistencia(IntegracaoPersistencia integracao) {
         this.integracao = integracao;
+    }
+
+    public void setStageConsulta(Stage stage_consultas) {
+        this.stage_consultas = stage_consultas;
     }
 
     @FXML
@@ -122,6 +129,13 @@ public class BarraPesistenciaController implements Initializable {
         local_action = DBAction.CANCELAR;
         integracao.getObject(DBAction.CANCELAR);
         integracao.limpartudo();
+    }
+
+    @FXML
+    private void consultas(ActionEvent event) {
+        if (stage_consultas != null) {
+            stage_consultas.showAndWait();
+        }
     }
 
 }

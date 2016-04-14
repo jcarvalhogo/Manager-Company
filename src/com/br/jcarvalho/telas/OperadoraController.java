@@ -11,12 +11,18 @@ import com.br.jcarvalho.util.IntegracaoPersistencia;
 import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -39,7 +45,29 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lb_estatus.setText(MsgBarra.NORMAL);
-        barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this));
+        barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this, getStageConsulta()));
+
+    }
+
+    private Stage getStageConsulta() {
+        ObservableList<Operadora> observableList = FXCollections.observableArrayList();
+        TableView<Operadora> table = new TableView<>();
+        table.setItems(observableList);
+        
+        TableColumn<Operadora, Integer> cl_id = new TableColumn<>("ID");
+        cl_id.setMaxWidth(80);
+        cl_id.setCellValueFactory(new PropertyValueFactory<>("idOpe"));
+        
+        TableColumn<Operadora, String> cl_descricao = new TableColumn<>("Operadora");
+        cl_descricao.setMinWidth(520);
+        cl_descricao.setCellValueFactory(new PropertyValueFactory<>("desciracaoOpe"));
+
+        return LoaderFxml.getStageConsulta(
+                "Cosulta de Operadoras",
+                600, 500, table,
+                observableList,
+                cl_id, cl_descricao);
+
     }
 
     @Override

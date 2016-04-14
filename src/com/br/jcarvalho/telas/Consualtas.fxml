@@ -8,12 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="841.0" stylesheets="@../css/BarraPersistencia.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.jcarvalho.telas.ConsualtasController">
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="841.0" stylesheets="@../css/BarraPersistencia.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.ConsultasController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="287.0" prefHeight="100.0" prefWidth="200.0" styleClass="fundo_barra_topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button id="btn_consultar" mnemonicParsing="false" styleClass="btn_padrao">
+            <Button id="btn_consultar" mnemonicParsing="false" onAction="#consultar" styleClass="btn_padrao">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -34,6 +33,6 @@
          </children>
       </HBox>
       <HBox layoutX="-8.0" layoutY="378.0" prefHeight="100.0" prefWidth="517.0" styleClass="fundo_barra_button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <HBox layoutX="292.0" layoutY="180.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+      <HBox fx:id="conteiner_table" layoutX="292.0" layoutY="180.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
    </children>
 </AnchorPane>

@@ -29,7 +29,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>
       </Button>
-      <Button id="btn_consultar" mnemonicParsing="false" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
+      <Button id="btn_consultar" mnemonicParsing="false" onAction="#consultas" prefHeight="65.0" prefWidth="58.0" styleClass="btn_padrao" stylesheets="@../css/BarraPersistencia.css">
          <HBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </HBox.margin>

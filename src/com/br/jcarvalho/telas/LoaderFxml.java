@@ -9,21 +9,24 @@ import com.br.jcarvalho.util.IntegracaoPersistencia;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class LoaderFxml {
 
-    public static Parent getBarraPersistencia(IntegracaoPersistencia integracao) {
+    public static Parent getBarraPersistencia(IntegracaoPersistencia integracao, Stage stage_consulta) {
         try {
             FXMLLoader loader = new FXMLLoader(LoaderFxml.class.getResource("BarraPesistencia.fxml"));
             loader.load();
             BarraPesistenciaController controller = loader.getController();
             controller.setIntegracaoPersistencia(integracao);
-
+            controller.setStageConsulta(stage_consulta);
             return loader.getRoot();
         } catch (IOException ex) {
             Logger.getLogger(LoaderFxml.class.getName()).log(Level.SEVERE, null, ex);
@@ -49,4 +52,29 @@ public class LoaderFxml {
 
         return null;
     }
+
+    public static Stage getStageConsulta(String titulo, int width, int heigth, TableView<?> table, ObservableList<?> observableList, TableColumn<?, ?>... colunas) {
+        try {
+            FXMLLoader loader = new FXMLLoader(LoaderFxml.class.getResource("Consualtas.fxml"));
+            loader.load();
+            ConsultasController controller = loader.getController();
+            controller.initTable(table, observableList, colunas);
+            Scene scene = new Scene(loader.getRoot());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setMinWidth(500);
+            stage.setResizable(true);
+            stage.setMaximized(false);
+            stage.setWidth(width);
+            stage.setHeight(heigth);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle(titulo);
+            return stage;
+        } catch (IOException ex) {
+            Logger.getLogger(LoaderFxml.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+
 }
