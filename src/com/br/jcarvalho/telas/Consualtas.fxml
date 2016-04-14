@@ -8,31 +8,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="841.0" stylesheets="@../css/BarraPersistencia.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.ConsultasController">
+<AnchorPane id="AnchorPane" prefHeight="460.0" prefWidth="600.0" stylesheets="@../css/BarraPersistencia.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.ConsultasController">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="287.0" prefHeight="100.0" prefWidth="200.0" styleClass="fundo_barra_topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button id="btn_consultar" mnemonicParsing="false" onAction="#consultar" styleClass="btn_padrao">
+            <Button id="btn_consultar" fx:id="button" mnemonicParsing="false" onAction="#consultar" styleClass="btn_padrao">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="397.0">
                <children>
-                  <ComboBox prefHeight="26.0" prefWidth="205.0">
+                  <ComboBox fx:id="comboBox" prefHeight="26.0" prefWidth="205.0">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </ComboBox>
-                  <TextField promptText="consultar" />
+                  <TextField fx:id="textField" promptText="consultar" />
                </children>
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
             </VBox>
+            <ProgressIndicator fx:id="progressIndicator" prefHeight="80.0" prefWidth="89.0" progress="1.0" />
          </children>
       </HBox>
-      <HBox layoutX="-8.0" layoutY="378.0" prefHeight="100.0" prefWidth="517.0" styleClass="fundo_barra_button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox alignment="CENTER" layoutX="-8.0" layoutY="378.0" prefHeight="100.0" prefWidth="517.0" styleClass="fundo_barra_button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lb_estatus" text="Estatus">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></HBox>
       <HBox fx:id="conteiner_table" layoutX="292.0" layoutY="180.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
    </children>
 </AnchorPane>

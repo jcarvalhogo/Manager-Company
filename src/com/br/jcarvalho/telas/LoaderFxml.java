@@ -53,17 +53,17 @@ public class LoaderFxml {
         return null;
     }
 
-    public static Stage getStageConsulta(String titulo, int width, int heigth, TableView<?> table, ObservableList<?> observableList, TableColumn<?, ?>... colunas) {
+    public static Stage getStageConsulta(Class myClass, String titulo, int width, int heigth, TableView<?> table, ObservableList<?> observableList, TableColumn<?, ?>... colunas) {
         try {
             FXMLLoader loader = new FXMLLoader(LoaderFxml.class.getResource("Consualtas.fxml"));
             loader.load();
             ConsultasController controller = loader.getController();
-            controller.initTable(table, observableList, colunas);
+            controller.initTable(myClass, table, observableList, colunas);
             Scene scene = new Scene(loader.getRoot());
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setMinWidth(500);
-            stage.setResizable(true);
+
+            stage.setResizable(false);
             stage.setMaximized(false);
             stage.setWidth(width);
             stage.setHeight(heigth);

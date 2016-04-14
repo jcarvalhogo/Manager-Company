@@ -21,4 +21,8 @@ public class MsgBarra {
     public static final String ERRO_AO_SALVAR = "Não foi possivel salvar o registro";
     public static final String EDTIDADO_COM_SUCESO = "Registro alterado com sucesso";
     public static final String ERRO_AO_EDITAR = "Não foi possivel alterar o registro";
+    public static final String PESQUISANDO = "Procurando por registros";
+    public static final String REGISTRO_ENCONTRADOS = " -> Registro encontrados";
+    public static final String REGISTRO_NAO_ENCONTRADOS = "Não Possível encontrar Registro";
+    
 }

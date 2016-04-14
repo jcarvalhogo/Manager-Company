@@ -53,16 +53,17 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
         ObservableList<Operadora> observableList = FXCollections.observableArrayList();
         TableView<Operadora> table = new TableView<>();
         table.setItems(observableList);
-        
+
         TableColumn<Operadora, Integer> cl_id = new TableColumn<>("ID");
         cl_id.setMaxWidth(80);
         cl_id.setCellValueFactory(new PropertyValueFactory<>("idOpe"));
-        
+
         TableColumn<Operadora, String> cl_descricao = new TableColumn<>("Operadora");
         cl_descricao.setMinWidth(520);
         cl_descricao.setCellValueFactory(new PropertyValueFactory<>("desciracaoOpe"));
 
         return LoaderFxml.getStageConsulta(
+                Operadora.class,
                 "Cosulta de Operadoras",
                 600, 500, table,
                 observableList,
