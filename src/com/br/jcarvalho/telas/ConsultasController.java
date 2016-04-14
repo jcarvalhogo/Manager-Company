@@ -5,6 +5,7 @@
  */
 package com.br.jcarvalho.telas;
 
+import com.br.jcarvalho.util.ItemComboBox;
 import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
 import java.util.List;
@@ -38,6 +39,7 @@ public class ConsultasController implements Initializable {
     private EntityManagerFactory emf;
     private EntityManager em;
     private Class myClass;
+    private List<ItemComboBox> itens;
 
     @FXML
     private HBox conteiner_table;
@@ -79,6 +81,14 @@ public class ConsultasController implements Initializable {
         emf = Persistence.createEntityManagerFactory("Manager-Company");
         em = emf.createEntityManager();
         em.getTransaction().begin();
+    }
+
+    public void initItensComboBox(List<ItemComboBox> itens) {
+        this.itens = itens;
+        comboBox.getItems().clear();
+        itens.stream().forEach((iten) -> {
+            comboBox.getItems().add(iten.getItem());
+        });
     }
 
     public void initTable(Class myClass, TableView<?> table, ObservableList<? extends Object> observableList, TableColumn<?, ?>... colunas) {
