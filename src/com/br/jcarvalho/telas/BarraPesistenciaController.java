@@ -31,7 +31,7 @@ public class BarraPesistenciaController implements Initializable {
     // Uso Josemar
     //private static final String PERSISTENCE_UNIT = "Manager-Company";
     // Uso Fred
-    private static final String PERSISTENCE_UNIT = "Manager-Company-02";
+    public static final String PERSISTENCE_UNIT = "Manager-Company-02";
 
     private IntegracaoPersistencia integracao;
     private int local_action;

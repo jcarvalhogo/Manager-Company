@@ -5,6 +5,7 @@
  */
 package com.br.jcarvalho.telas;
 
+import static com.br.jcarvalho.telas.BarraPesistenciaController.PERSISTENCE_UNIT;
 import com.br.jcarvalho.util.ItemComboBox;
 import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
@@ -79,7 +80,7 @@ public class ConsultasController implements Initializable {
 
     private void getEntityManager() {
         //emf = Persistence.createEntityManagerFactory("Manager-Company");
-        emf = Persistence.createEntityManagerFactory("Manager-Company-02");
+        emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
         em = emf.createEntityManager();
         em.getTransaction().begin();
     }
