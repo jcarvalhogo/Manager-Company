@@ -26,6 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -45,6 +46,7 @@ public class ConsultasController implements Initializable {
     private EntityManager em;
     private Class myClass;
     private List<ItemComboBox> itens;
+    private Stage stage;
 
     @FXML
     private HBox conteiner_table;
@@ -88,6 +90,10 @@ public class ConsultasController implements Initializable {
         em.getTransaction().begin();
     }
 
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
     public void setIntegracaoConsultas(IntegracaoConsultas integracao) {
         this.integracao = integracao;
     }
@@ -109,8 +115,13 @@ public class ConsultasController implements Initializable {
         for (TableColumn coluna : colunas) {
             table.getColumns().add(coluna);
         }
-        table.setOnMouseReleased((MouseEvent event) -> {
+
+        table.setOnMouseClicked((MouseEvent event) -> {
             integracao.setObjectConsulta(table.getSelectionModel().getSelectedItem());
+            if (event.getClickCount() > 1) {
+                //((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+                stage.close();
+            }
         });
         conteiner_table.getChildren().add(table);
     }

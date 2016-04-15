@@ -67,6 +67,8 @@ public class LoaderFxml {
             Scene scene = new Scene(loader.getRoot());
             Stage stage = new Stage();
             stage.setScene(scene);
+            
+            controller.setStage(stage);
 
             stage.setResizable(false);
             stage.setMaximized(false);

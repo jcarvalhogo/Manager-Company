@@ -85,7 +85,9 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     public Object getObject(int action) {
         switch (action) {
             case DBAction.SALVAR:
-                operadora = new Operadora();
+                if (operadora == null) {
+                    operadora = new Operadora();
+                }
                 operadora.setDesciracaoOpe(tf_operadora.getText());
                 operadora.setObsOpe(ta_obs.getText());
                 break;
@@ -137,6 +139,5 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
         ta_obs.setText(operadora.getObsOpe());
         return true;
     }
-
 
 }
