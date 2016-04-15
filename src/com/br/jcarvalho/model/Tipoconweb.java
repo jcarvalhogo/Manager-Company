@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  * @author Josemar
  */
 @Entity
-@Table(name = "tipoconweb", catalog = "ManegerCompany", schema = "")
+@Table(name = "tipoconweb")
 @NamedQueries({
     @NamedQuery(name = "Tipoconweb.findAll", query = "SELECT t FROM Tipoconweb t"),
     @NamedQuery(name = "Tipoconweb.findByIdConWeb", query = "SELECT t FROM Tipoconweb t WHERE t.idConWeb = :idConWeb"),
@@ -34,14 +35,23 @@ public class Tipoconweb implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_con_web")
     private Integer idConWeb;
+    @Basic(optional = false)
     @Column(name = "desciracao_con_web")
     private String desciracaoConWeb;
+    @Lob
+    @Column(name = "obs_con_web")
+    private String obsConWeb;
 
     public Tipoconweb() {
     }
 
     public Tipoconweb(Integer idConWeb) {
         this.idConWeb = idConWeb;
+    }
+
+    public Tipoconweb(Integer idConWeb, String desciracaoConWeb) {
+        this.idConWeb = idConWeb;
+        this.desciracaoConWeb = desciracaoConWeb;
     }
 
     public Integer getIdConWeb() {
@@ -58,6 +68,14 @@ public class Tipoconweb implements Serializable {
 
     public void setDesciracaoConWeb(String desciracaoConWeb) {
         this.desciracaoConWeb = desciracaoConWeb;
+    }
+
+    public String getObsConWeb() {
+        return obsConWeb;
+    }
+
+    public void setObsConWeb(String obsConWeb) {
+        this.obsConWeb = obsConWeb;
     }
 
     @Override

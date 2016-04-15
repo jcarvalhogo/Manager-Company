@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="474.0" stylesheets="@../css/BarraPersistencia.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.jcarvalho.telas.TipoConWebController">
+   <children>
+      <HBox fx:id="barra_ferrameta" alignment="CENTER" layoutX="181.0" layoutY="41.0" prefHeight="100.0" prefWidth="200.0" styleClass="fundo_barra_topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <HBox alignment="CENTER" layoutX="191.0" layoutY="51.0" prefHeight="100.0" prefWidth="200.0" styleClass="fundo_barra_button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lb_estatus" text="estatus">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="10.0" layoutY="174.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="90.0">
+         <children>
+            <TextArea fx:id="ta_obs" prefHeight="200.0" prefWidth="333.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0" />
+            <Label layoutX="17.0" layoutY="46.0" text="Descrição" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="0.0" />
+            <TextField fx:id="tf_descriacao" layoutX="17.0" layoutY="64.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="17.0" />
+            <Label layoutX="17.0" layoutY="101.0" text="Descrição" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="384.0" AnchorPane.topAnchor="50.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

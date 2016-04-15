@@ -13,8 +13,6 @@ public interface IntegracaoPersistencia {
 
     public Object getObject(int action);
 
-    public boolean setObject(Object object);
-
     public boolean isShowMessage();
 
     public boolean reflesh();

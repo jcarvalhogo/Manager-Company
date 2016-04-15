@@ -39,4 +39,10 @@ public class PrincipalController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    private void showTelaContatoWeb(ActionEvent event) {
+        Stage stage = LoaderFxml.getStage("TipoConWeb.fxml", "Tela de Cadastro de Contatos Web");
+        stage.show();
+    }
+
 }

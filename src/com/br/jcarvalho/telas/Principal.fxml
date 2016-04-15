@@ -48,6 +48,7 @@
                   <Menu mnemonicParsing="false" text="Uteis">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#showTelaOperadora" text="Operadoras" />
+                        <MenuItem mnemonicParsing="false" onAction="#showTelaContatoWeb" text="Contatos Web" />
                     </items>
                   </Menu>
                </items>

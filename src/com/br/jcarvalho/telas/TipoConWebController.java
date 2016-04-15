@@ -5,7 +5,7 @@
  */
 package com.br.jcarvalho.telas;
 
-import com.br.jcarvalho.model.Operadora;
+import com.br.jcarvalho.model.Tipoconweb;
 import com.br.jcarvalho.util.DBAction;
 import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
@@ -33,14 +33,14 @@ import javafx.stage.Stage;
  *
  * @author Josemar
  */
-public class OperadoraController implements Initializable, IntegracaoPersistencia, IntegracaoConsultas {
+public class TipoConWebController implements Initializable, IntegracaoConsultas, IntegracaoPersistencia {
 
-    private Operadora operadora;
+    private Tipoconweb tipoconweb;
 
     @FXML
-    private HBox barra_ferramenta;
+    private HBox barra_ferrameta;
     @FXML
-    private TextField tf_operadora;
+    private TextField tf_descriacao;
     @FXML
     private TextArea ta_obs;
     @FXML
@@ -49,32 +49,32 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lb_estatus.setText(MsgBarra.NORMAL);
-        barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this, getStageConsulta()));
+        barra_ferrameta.getChildren().add(LoaderFxml.getBarraPersistencia(this, getStageConsulta()));
     }
 
     private Stage getStageConsulta() {
         List<ItemComboBox> itens = new ArrayList<>();
-        itens.add(new ItemComboBox("Todos", "Operadora.findAll", "", null));
-        itens.add(new ItemComboBox("Código", "Operadora.findByIdOpe", "idOpe", Integer.class));
-        itens.add(new ItemComboBox("Operadora", "Operadora.findByDesciracaoOpe", "desciracaoOpe", String.class));
+        itens.add(new ItemComboBox("Todos", "Tipoconweb.findAll", "", null));
+        itens.add(new ItemComboBox("Código", "Tipoconweb.findByIdConWeb", "idConWeb", Integer.class));
+        itens.add(new ItemComboBox("Tipo Contato", "findByDesciracaoConWeb", "desciracaoConWeb", String.class));
 
-        ObservableList<Operadora> observableList = FXCollections.observableArrayList();
-        TableView<Operadora> table = new TableView<>();
+        ObservableList<Tipoconweb> observableList = FXCollections.observableArrayList();
+        TableView<Tipoconweb> table = new TableView<>();
         table.setItems(observableList);
 
-        TableColumn<Operadora, Integer> cl_id = new TableColumn<>("ID");
+        TableColumn<Tipoconweb, Integer> cl_id = new TableColumn<>("ID");
         cl_id.setMaxWidth(80);
-        cl_id.setCellValueFactory(new PropertyValueFactory<>("idOpe"));
+        cl_id.setCellValueFactory(new PropertyValueFactory<>("idConWeb"));
 
-        TableColumn<Operadora, String> cl_descricao = new TableColumn<>("Operadora");
+        TableColumn<Tipoconweb, String> cl_descricao = new TableColumn<>("Descrição");
         cl_descricao.setMinWidth(520);
-        cl_descricao.setCellValueFactory(new PropertyValueFactory<>("desciracaoOpe"));
+        cl_descricao.setCellValueFactory(new PropertyValueFactory<>("desciracaoConWeb"));
 
         return LoaderFxml.getStageConsulta(
-                Operadora.class,
+                Tipoconweb.class,
                 itens,
                 this,
-                "Cosulta de Operadoras",
+                "Cosulta de Contatos Web",
                 600, 500, table,
                 observableList,
                 cl_id, cl_descricao);
@@ -82,15 +82,23 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     }
 
     @Override
+    public boolean setObjectConsulta(Object object) {
+        tipoconweb = (Tipoconweb) object;
+        tf_descriacao.setText(tipoconweb.getDesciracaoConWeb());
+        ta_obs.setText(tipoconweb.getObsConWeb());
+        return true;
+    }
+
+    @Override
     public Object getObject(int action) {
         switch (action) {
             case DBAction.SALVAR:
-                operadora = new Operadora();
-                operadora.setDesciracaoOpe(tf_operadora.getText());
-                operadora.setObsOpe(ta_obs.getText());
+                tipoconweb = new Tipoconweb();
+                tipoconweb.setDesciracaoConWeb(tf_descriacao.getText());
+                tipoconweb.setObsConWeb(ta_obs.getText());
                 break;
             case DBAction.CANCELAR:
-                operadora = null;
+                tipoconweb = null;
                 lb_estatus.setText(MsgBarra.CANCEL);
                 break;
             case DBAction.EDITAR:
@@ -105,7 +113,7 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
                 return null;
         }
 
-        return operadora;
+        return tipoconweb;
     }
 
     @Override
@@ -115,28 +123,19 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
 
     @Override
     public boolean reflesh() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean limpartudo() {
-        tf_operadora.setText("");
+        tf_descriacao.setText("");
         ta_obs.setText("");
         return true;
     }
 
     @Override
     public void setFocus() {
-        tf_operadora.requestFocus();
+        tf_descriacao.requestFocus();
     }
-
-    @Override
-    public boolean setObjectConsulta(Object object) {
-        this.operadora = (Operadora) object;
-        tf_operadora.setText(operadora.getDesciracaoOpe());
-        ta_obs.setText(operadora.getObsOpe());
-        return true;
-    }
-
 
 }
