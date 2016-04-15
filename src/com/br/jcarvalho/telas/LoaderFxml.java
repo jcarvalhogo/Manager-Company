@@ -5,6 +5,7 @@
  */
 package com.br.jcarvalho.telas;
 
+import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
 import com.br.jcarvalho.util.ItemComboBox;
 import java.io.IOException;
@@ -55,13 +56,14 @@ public class LoaderFxml {
         return null;
     }
 
-    public static Stage getStageConsulta(Class myClass, List<ItemComboBox> itens, String titulo, int width, int heigth, TableView<?> table, ObservableList<?> observableList, TableColumn<?, ?>... colunas) {
+    public static Stage getStageConsulta(Class myClass, List<ItemComboBox> itens, IntegracaoConsultas integracao, String titulo, int width, int heigth, TableView<?> table, ObservableList<?> observableList, TableColumn<?, ?>... colunas) {
         try {
             FXMLLoader loader = new FXMLLoader(LoaderFxml.class.getResource("Consualtas.fxml"));
             loader.load();
             ConsultasController controller = loader.getController();
             controller.initTable(myClass, table, observableList, colunas);
             controller.initItensComboBox(itens);
+            controller.setIntegracaoConsultas(integracao);
             Scene scene = new Scene(loader.getRoot());
             Stage stage = new Stage();
             stage.setScene(scene);

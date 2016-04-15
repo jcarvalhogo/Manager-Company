@@ -7,6 +7,7 @@ package com.br.jcarvalho.telas;
 
 import com.br.jcarvalho.model.Operadora;
 import com.br.jcarvalho.util.DBAction;
+import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
 import com.br.jcarvalho.util.ItemComboBox;
 import com.br.jcarvalho.util.MsgBarra;
@@ -32,7 +33,7 @@ import javafx.stage.Stage;
  *
  * @author Josemar
  */
-public class OperadoraController implements Initializable, IntegracaoPersistencia {
+public class OperadoraController implements Initializable, IntegracaoPersistencia, IntegracaoConsultas {
 
     private Operadora operadora;
 
@@ -49,7 +50,6 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     public void initialize(URL url, ResourceBundle rb) {
         lb_estatus.setText(MsgBarra.NORMAL);
         barra_ferramenta.getChildren().add(LoaderFxml.getBarraPersistencia(this, getStageConsulta()));
-
     }
 
     private Stage getStageConsulta() {
@@ -73,6 +73,7 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
         return LoaderFxml.getStageConsulta(
                 Operadora.class,
                 itens,
+                this,
                 "Cosulta de Operadoras",
                 600, 500, table,
                 observableList,
@@ -108,11 +109,6 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     }
 
     @Override
-    public boolean setObject(Object object) {
-        return false;
-    }
-
-    @Override
     public boolean isShowMessage() {
         return true;
     }
@@ -132,6 +128,22 @@ public class OperadoraController implements Initializable, IntegracaoPersistenci
     @Override
     public void setFocus() {
         tf_operadora.requestFocus();
+    }
+
+    @Override
+    public boolean setObjectConsulta(Object object) {
+        this.operadora = (Operadora) object;
+        tf_operadora.setText(operadora.getDesciracaoOpe());
+        ta_obs.setText(operadora.getObsOpe());
+        return true;
+    }
+
+    @Override
+    public boolean setObject(Object object) {
+        this.operadora = (Operadora) object;
+        tf_operadora.setText(operadora.getDesciracaoOpe());
+        ta_obs.setText(operadora.getObsOpe());
+        return false;
     }
 
 }
