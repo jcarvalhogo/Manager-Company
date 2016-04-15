@@ -182,7 +182,6 @@ public class ConsultasController implements Initializable {
 
                 em.close();
                 emf.close();
-
                 disableControler(false, 1);
             }
         }
