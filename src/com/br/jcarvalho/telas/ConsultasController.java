@@ -6,6 +6,7 @@
 package com.br.jcarvalho.telas;
 
 import static com.br.jcarvalho.telas.BarraPesistenciaController.PERSISTENCE_UNIT;
+import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.ItemComboBox;
 import com.br.jcarvalho.util.MsgBarra;
 import java.net.URL;
@@ -23,6 +24,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,6 +37,8 @@ import javax.persistence.TypedQuery;
  * @author Josemar
  */
 public class ConsultasController implements Initializable {
+
+    private IntegracaoConsultas integracao;
 
     private ObservableList observableList;
     private EntityManagerFactory emf;
@@ -84,6 +88,10 @@ public class ConsultasController implements Initializable {
         em.getTransaction().begin();
     }
 
+    public void setIntegracaoConsultas(IntegracaoConsultas integracao) {
+        this.integracao = integracao;
+    }
+
     public void initItensComboBox(List<ItemComboBox> itens) {
         if (itens != null) {
             this.itens = itens;
@@ -101,7 +109,9 @@ public class ConsultasController implements Initializable {
         for (TableColumn coluna : colunas) {
             table.getColumns().add(coluna);
         }
-
+        table.setOnMouseReleased((MouseEvent event) -> {
+            integracao.setObjectConsulta(table.getSelectionModel().getSelectedItem());
+        });
         conteiner_table.getChildren().add(table);
     }
 
@@ -110,16 +120,21 @@ public class ConsultasController implements Initializable {
         int p_size = query.getParameters().size();
         if (p_size > 0) {
             if (item.getTipo().getSimpleName().equals("Integer")) {
-                query.setParameter(item.getParametro(), Integer.parseInt(textField.getText()));
+                if (textField.getText().isEmpty()) {
+                    textField.setText("1");
+                }
+                int c = 1;
+                try {
+                    c = Integer.parseInt(textField.getText());
+                } catch (NumberFormatException ex) {
+                    textField.setText("1");
+                }
+                query.setParameter(item.getParametro(), c);
             } else {
                 query.setParameter(item.getParametro(), textField.getText());
             }
         }
         return query;
-    }
-
-    private boolean temParametros() {
-        return false;
     }
 
     @FXML

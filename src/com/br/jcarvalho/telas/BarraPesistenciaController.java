@@ -28,10 +28,8 @@ import javax.persistence.Persistence;
  * @author Josemar
  */
 public class BarraPesistenciaController implements Initializable {
-    // Uso Josemar
-    //private static final String PERSISTENCE_UNIT = "Manager-Company";
-    // Uso Fred
-    public static final String PERSISTENCE_UNIT = "Manager-Company-02";
+    //public static final String PERSISTENCE_UNIT = "Manager-Company-02";
+    public static final String PERSISTENCE_UNIT = "Manager-Company";
 
     private IntegracaoPersistencia integracao;
     private int local_action;
@@ -139,6 +137,7 @@ public class BarraPesistenciaController implements Initializable {
     private void consultas(ActionEvent event) {
         if (stage_consultas != null) {
             stage_consultas.showAndWait();
+            //
         }
     }
 
