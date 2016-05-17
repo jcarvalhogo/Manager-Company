@@ -7,7 +7,8 @@
 .fundo_barra_button{
     -fx-background-color: #84a1c8;
     -fx-pref-height: 40;
-    -fx-text-alignment: center;
+    -fx-alignment: CENTER;
+    -fx-font-size: 16px;  
 }
 
 .ConteinerPersistencia{
