@@ -24,6 +24,13 @@
     -fx-background-position: center center;
 }
 
+.btn_basico{
+    -fx-pref-height: 64;
+    -fx-pref-width: 64;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
 .btn_padrao:hover{
     -fx-background-color: white;
 }
@@ -46,5 +53,13 @@
 
 #btn_consultar{
     -fx-background-image: url(../img64/search-file64.png);
+}
+
+#btn_insert{
+    -fx-background-image: url(../img64/Actions-plus-icon64.png);
+}
+
+#btn_remove{
+    -fx-background-image: url(../img64/Actions-remove-icon64.png);
 }
 

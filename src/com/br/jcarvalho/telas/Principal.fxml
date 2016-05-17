@@ -14,7 +14,7 @@
     <children>
       <HBox layoutX="14.0" layoutY="130.0" prefWidth="1198.0" styleClass="FundoBarra" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
          <children>
-            <Button id="btn_cliente_fisico" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" styleClass="btn_barra_principal">
+            <Button id="btn_cliente_fisico" mnemonicParsing="false" onAction="#showTelaCliente" prefHeight="54.0" prefWidth="54.0" styleClass="btn_barra_principal">
                <HBox.margin>
                   <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
                </HBox.margin>

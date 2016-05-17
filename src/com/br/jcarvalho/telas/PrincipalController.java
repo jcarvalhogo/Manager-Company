@@ -45,4 +45,10 @@ public class PrincipalController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    private void showTelaCliente(ActionEvent event) {
+        Stage stage = LoaderFxml.getStage("Clientes.fxml", "Tela de Cadastro de Clientes");
+        stage.show();
+    }
+
 }

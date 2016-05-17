@@ -1,0 +1,3 @@
+
+acessar base de dados por webserver "http://cep.republicavirtual.com.br/web_cep.php?cep=74684440"
+
