@@ -131,10 +131,7 @@ public class Telcliente implements Serializable {
             return false;
         }
         Telcliente other = (Telcliente) object;
-        if ((this.idTelCli == null && other.idTelCli != null) || (this.idTelCli != null && !this.idTelCli.equals(other.idTelCli))) {
-            return false;
-        }
-        return true;
+        return !((this.idTelCli == null && other.idTelCli != null) || (this.idTelCli != null && !this.idTelCli.equals(other.idTelCli)));
     }
 
     @Override

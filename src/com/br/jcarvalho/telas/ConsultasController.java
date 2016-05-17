@@ -8,7 +8,7 @@ package com.br.jcarvalho.telas;
 import static com.br.jcarvalho.telas.BarraPesistenciaController.PERSISTENCE_UNIT;
 import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.ItemComboBox;
-import com.br.jcarvalho.util.MsgBarra;
+import com.br.jcarvalho.util.MsgApp;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -77,9 +77,9 @@ public class ConsultasController implements Initializable {
             progressIndicator.progressProperty().setValue(value);
             progressIndicator.setVisible(disable);
             if (disable) {
-                lb_estatus.setText(MsgBarra.PESQUISANDO);
+                lb_estatus.setText(MsgApp.PESQUISANDO);
             } else {
-                lb_estatus.setText("" + observableList.size() + MsgBarra.REGISTRO_ENCONTRADOS);
+                lb_estatus.setText("" + observableList.size() + MsgApp.REGISTRO_ENCONTRADOS);
             }
         });
     }

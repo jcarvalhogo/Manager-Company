@@ -7,7 +7,7 @@ package com.br.jcarvalho.telas;
 
 import com.br.jcarvalho.util.DBAction;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
-import com.br.jcarvalho.util.MsgBarra;
+import com.br.jcarvalho.util.MsgApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -80,7 +80,7 @@ public class BarraPesistenciaController implements Initializable {
                         }
                         em.close();
                         emf.close();
-                        menssagem(MsgBarra.TITULO, MsgBarra.SALVO_COM_SUCESO, AlertType.CONFIRMATION);
+                        menssagem(MsgApp.TITULO, MsgApp.SALVO_COM_SUCESO, AlertType.CONFIRMATION);
                         integracao.limpartudo();
                     }
                     break;
@@ -95,7 +95,7 @@ public class BarraPesistenciaController implements Initializable {
                         }
                         em.close();
                         emf.close();
-                        menssagem(MsgBarra.TITULO, MsgBarra.EDTIDADO_COM_SUCESO, AlertType.CONFIRMATION);
+                        menssagem(MsgApp.TITULO, MsgApp.EDTIDADO_COM_SUCESO, AlertType.CONFIRMATION);
                         integracao.limpartudo();
                     }
                     break;

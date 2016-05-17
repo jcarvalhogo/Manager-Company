@@ -10,7 +10,7 @@ import com.br.jcarvalho.util.DBAction;
 import com.br.jcarvalho.util.IntegracaoConsultas;
 import com.br.jcarvalho.util.IntegracaoPersistencia;
 import com.br.jcarvalho.util.ItemComboBox;
-import com.br.jcarvalho.util.MsgBarra;
+import com.br.jcarvalho.util.MsgApp;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public class TipoConWebController implements Initializable, IntegracaoConsultas,
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        lb_estatus.setText(MsgBarra.NORMAL);
+        lb_estatus.setText(MsgApp.NORMAL);
         barra_ferrameta.getChildren().add(LoaderFxml.getBarraPersistencia(this, getStageConsulta()));
     }
 
@@ -99,14 +99,14 @@ public class TipoConWebController implements Initializable, IntegracaoConsultas,
                 break;
             case DBAction.CANCELAR:
                 tipoconweb = null;
-                lb_estatus.setText(MsgBarra.CANCEL);
+                lb_estatus.setText(MsgApp.CANCEL);
                 break;
             case DBAction.EDITAR:
-                lb_estatus.setText(MsgBarra.EDITE);
+                lb_estatus.setText(MsgApp.EDITE);
                 break;
             case DBAction.NOVO:
                 limpartudo();
-                lb_estatus.setText(MsgBarra.NOVO);
+                lb_estatus.setText(MsgApp.NOVO);
                 setFocus();
                 break;
             default:
