@@ -31,6 +31,13 @@
     -fx-background-position: center center;
 }
 
+.btn_basico_48{
+    -fx-pref-height: 48;
+    -fx-pref-width: 48;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
 .btn_padrao:hover{
     -fx-background-color: white;
 }
@@ -56,10 +63,10 @@
 }
 
 #btn_insert{
-    -fx-background-image: url(../img64/Actions-plus-icon64.png);
+    -fx-background-image: url(../img48/Actions-plus-icon48.png);
 }
 
 #btn_remove{
-    -fx-background-image: url(../img64/Actions-remove-icon64.png);
+    -fx-background-image: url(../img48/Actions-remove-icon48.png);
 }
 
