@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="753.0" prefWidth="888.0" styleClass="ConteinerPersistencia" stylesheets="@../css/BarraPersistencia.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.br.jcarvalho.telas.ClienteJuridicoController">
+<AnchorPane id="AnchorPane" prefHeight="753.0" prefWidth="888.0" styleClass="ConteinerPersistencia" stylesheets="@../css/BarraPersistencia.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.jcarvalho.telas.ClienteJuridicoController">
    <children>
       <HBox alignment="CENTER" layoutX="406.0" prefHeight="100.0" prefWidth="200.0" styleClass="fundo_barra_topo" stylesheets="@../css/BarraPersistencia.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <TabPane layoutX="342.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
@@ -65,15 +64,6 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label alignment="CENTER" prefHeight="20.0" prefWidth="873.0" text="Endereço Matriz" textFill="#1147e8">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="3.0" top="15.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Separator prefHeight="3.0" prefWidth="690.0" />
                               <HBox prefWidth="200.0">
                                  <children>
                                     <VBox prefHeight="42.0" prefWidth="436.0">
@@ -255,11 +245,88 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Contatos">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
+            <Tab text="Contatos">
+               <content>
+                  <VBox>
+                     <children>
+                        <Label text="Telefones" />
+                        <HBox>
+                           <children>
+                              <TableView fx:id="tbw_telcliente" editable="true" prefHeight="187.0" prefWidth="838.0">
+                                 <columns>
+                                    <TableColumn fx:id="tbc_tel_operadora" prefWidth="143.0" text="Operadora" />
+                                    <TableColumn fx:id="tbc_tel_numero" minWidth="8.0" prefWidth="145.0" text="Numero" />
+                                    <TableColumn fx:id="tbc_tel_tipo" prefWidth="125.0" text="Tipo" />
+                                    <TableColumn fx:id="tbc_tel_obs" prefWidth="416.0" text="Obs" />
+                                 </columns>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </TableView>
+                              <VBox prefHeight="200.0">
+                                 <children>
+                                    <Button id="btn_insert" mnemonicParsing="false" onAction="#addTelefone" styleClass="btn_basico_48">
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button id="btn_remove" mnemonicParsing="false" onAction="#removerTelefone" styleClass="btn_basico_48">
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Separator>
+                        <Label text="Web">
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox prefHeight="174.0" prefWidth="717.0">
+                           <children>
+                              <TableView fx:id="tbw_contatosWeb" prefHeight="166.0" prefWidth="838.0">
+                                 <columns>
+                                    <TableColumn fx:id="tbc_web_url" prefWidth="415.0" text="Url" />
+                                    <TableColumn fx:id="tbc_web_tipo" prefWidth="117.0" text="Tipo" />
+                                    <TableColumn fx:id="tbc_web_obs" minWidth="0.0" prefWidth="298.0" text="Obs" />
+                                 </columns>
+                              </TableView>
+                              <VBox prefHeight="200.0">
+                                 <children>
+                                    <Button id="btn_insert" mnemonicParsing="false" styleClass="btn_basico_48">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button id="btn_remove" mnemonicParsing="false" styleClass="btn_basico_48">
+                                       <VBox.margin>
+                                          <Insets top="30.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
       <HBox alignment="CENTER" layoutX="-7.0" layoutY="673.0" prefHeight="100.0" prefWidth="990.0" styleClass="fundo_barra_button" stylesheets="@../css/BarraPersistencia.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
